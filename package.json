@@ -1,0 +1,28 @@
+{
+  "name": "blog-web-application",
+  "version": "1.0.0",
+  "description": "The goal of this project is to create a Blog web application using Node.js, Express.js, and EJS.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tolikhere/blog-web-application.git"
+  },
+  "author": "Anatoly Pavlenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tolikhere/blog-web-application/issues"
+  },
+  "homepage": "https://github.com/tolikhere/blog-web-application#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "morgan": "^1.10.1"
+  }
+}
