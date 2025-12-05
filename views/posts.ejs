@@ -1,0 +1,13 @@
+<%- include('./partials/header') %>
+
+<h1><%= message %></h1>
+
+
+  <% for (const post of posts) { %>
+    <article id="<%= post.id %>">
+      <h2><%= post.title %></h2>
+      <p><%= post.message %></p>
+    </article>
+  <% } %>
+
+<%- include('./partials/footer') %>
