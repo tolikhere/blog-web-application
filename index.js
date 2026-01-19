@@ -4,22 +4,25 @@ import morgan from 'morgan';
 import { fileURLToPath } from 'url';
 
 const app = express();
+// If app runs from different directories it will insure that app works correctly
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const port = 3000;
-
+// Add all posts into the posts array as an object during session 
 const posts = [];
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
+// Route to display all posts
 app.get('/', (req, res) => {
 	res.render('index', { posts: posts });
 });
 
+// Route to handle new post creation
 app.post('/new-post', (req, res) => {
   if (!req.body) return res.sendStatus(400);
 	posts.push({
@@ -27,9 +30,10 @@ app.post('/new-post', (req, res) => {
 		message: req.body.message,
 		id: Date.now().toString(),
 	});
-	res.redirect('/');
+	res.redirect('/'); // Back to the homepage
 });
 
+// Checking if id is integer
 app.param('id', (req, res, next, id) => {
 	if (/^\d+$/.test(id)) {
 		next();
@@ -38,6 +42,7 @@ app.param('id', (req, res, next, id) => {
 	}
 });
 
+// Route to show the form for editing a specific post
 app.get('/edit/:id', (req, res) => {
 	const postId = req.params.id;
 	const postToEdit = posts.find(p => p.id === postId);
@@ -48,6 +53,7 @@ app.get('/edit/:id', (req, res) => {
 	}
 });
 
+// Route to receive the submitted edited data
 app.post('/edit/:id', (req, res) => {
 	const postId = req.params.id;
 	const { title, message } = req.body;
@@ -61,10 +67,26 @@ app.post('/edit/:id', (req, res) => {
 
 		res.redirect('/');
 	} else {
-		res.status(404).send('Post not found');
+		res.status(404).send('Post not found for update.');
 	}
 });
 
+// Route to delete a specific post
+app.get('/delete/:id', (req, res) => {
+	const postId = req.params.id;
+	const postIndex = posts.findIndex(p => p.id === postId);
+
+	if (postIndex !== -1) {
+		posts.splice(postIndex, 1);
+		console.log(`Post ${postId} deleted successfully.`);
+
+		res.redirect('/');
+	} else {
+		res.status(404).send('Post not found for delete');
+	}
+});
+
+// Middleware to handle all invalid routes
 app.use((req, res) => {
 	res.status(404).send('Not found');
 });
