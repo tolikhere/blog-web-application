@@ -20,11 +20,11 @@
   },
   "homepage": "https://github.com/tolikhere/blog-web-application#readme",
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.11"
   },
   "dependencies": {
-    "ejs": "^3.1.10",
-    "express": "^5.1.0",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
     "morgan": "^1.10.1"
   }
 }
