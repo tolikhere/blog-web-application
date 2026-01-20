@@ -1,3 +1,147 @@
+:root {
+    /* Background & Container */
+  --bg-color: #f3e5f5;
+  --form-bg: #ffffff;
+  
+  /* Brand Colors */
+  --primary-pastel: #b39ddb;
+  --secondary-pastel: #80deea;
+  --accent-pastel: #f48fb1;
+  
+  /* Text Colors */
+  --text-main: #4a4a4a;
+  --text-muted: #7d7d7d;
+
+  --bg-gradient: linear-gradient(-135deg, #667eea 0%, #764ba2 100%);
+  --input-border: #e0e0e0;
+  --input-focus: #ce93d8;
+  --success-color: #a5d6a7;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: lightpink;
+  background-color: var(--bg-color);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+header {
+  background-color: var(--primary-pastel);
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 3.5rem;
+  font-style: italic;
+}
+
+h2 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  text-align: center;
+  font-size: 2rem;
+  margin: 40px 0 20px;
+}
+
+hr {
+  border: none;
+  border-bottom: 2px solid var(--input-border);
+  margin: 10px 0;
+}
+
+.container {
+  background-color: var(--form-bg);
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 900px;
+  min-height: 100vh;
+}
+
+.post-item {
+  margin-bottom: 3rem;
+  padding: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.post-item:hover {
+  transform: scale(1.02);
+}
+
+.post-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.delete-btn {
+  background-color: #FFB6C1;
+}
+
+.edit-btn {
+  background-color: #B0E0E6;
+}
+
+.submit-btn {
+  background-color: #77DD77;
+}
+
+input,
+textarea {
+  border: 1px solid var(--input-border);
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn {
+  cursor: pointer;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+}
+
+.btn:hover {
+  filter: brightness(92%) saturate(110%);
+  transform: translateY(-1px); /* Adds a subtle lift effect */
+}
+
+.submit-btn {
+  margin: 20px auto;
+  margin-right: 0;
+  display: block;
+}
+
+@media only screen and (min-width: 900px) {
+  .container {
+    width: 900px;
+    margin: 0 auto;
+  }
+  
 }
