@@ -2,14 +2,19 @@
 
 <h2>Edit Post: <%= post.title %></h2>
 
-<form action="/edit/<%= post.id %>" method="POST">
-  <label for="title">Title</label>
-  <input id="title" type="text" name="title" value="<%= post.title %>" required>
-  <label for="message">Post Content</label>
-  <textarea id="message" name="message" required><%= post.message %></textarea>
-  <button type="submit">Save</button>
+<form id="edit-form" class="post-form" action="/edit/<%= post.id %>" method="POST">
+  <div class="form-group">
+    <label class="form-label" for="title">Title</label>
+    <input class="form-control" id="title" type="text" name="title" value="<%= post.title %>" required>
+    <label class="form-label" for="message">Post Content</label>
+    <textarea class="form-control" id="content" name="message" required cols="30" rows="5"><%= post.message %></textarea>
+  </div>
+  <div class="post-actions">
+      <a href="/#<%= post.id %>">
+        <button type="button" class="btn delete-btn">Cancel</button>
+      </a>
+      <button id="save-btn" type="submit" class="btn save-btn">Save</button>
+    </div>
 </form>
-
-<a href="/"><button>Cancel</button></a>
 
 <%- include('./partials/footer') %>
