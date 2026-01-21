@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import morgan from 'morgan';
 import { fileURLToPath } from 'url';
+import { title } from 'process';
 
 const app = express();
 // If app runs from different directories it will insure that app works correctly
@@ -9,6 +10,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const port = 3000;
 // Add all posts into the posts array as an object during session 
 const posts = [];
+
+for (let i = 0; i < 15; i++) {
+	posts.unshift({
+		title: "hello @world " + i,
+		message: "What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?What is Lorem Ipsum?",
+		id: (Date.now() + i).toString(),
+	})
+}
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -25,7 +34,7 @@ app.get('/', (req, res) => {
 // Route to handle new post creation
 app.post('/new-post', (req, res) => {
   if (!req.body) return res.sendStatus(400);
-	posts.push({
+	posts.unshift({
 		title: req.body.title,
 		message: req.body.message,
 		id: Date.now().toString(),
@@ -65,7 +74,7 @@ app.post('/edit/:id', (req, res) => {
 		posts[postIndex].message = message;
 		console.log(`Post ${postId} updated successfully.`);
 
-		res.redirect('/');
+		res.redirect(`/#${postId}`);
 	} else {
 		res.status(404).send('Post not found for update.');
 	}
@@ -79,8 +88,11 @@ app.get('/delete/:id', (req, res) => {
 	if (postIndex !== -1) {
 		posts.splice(postIndex, 1);
 		console.log(`Post ${postId} deleted successfully.`);
-
-		res.redirect('/');
+		let anchor = "";
+		if (postIndex > 0) {
+			anchor = `#${posts[postIndex - 1].id}`
+		}
+		res.redirect(`/${anchor}`);
 	} else {
 		res.status(404).send('Post not found for delete');
 	}
