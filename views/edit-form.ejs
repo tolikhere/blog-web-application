@@ -10,10 +10,8 @@
     <textarea class="form-control" id="content" name="message" required cols="30" rows="5"><%= post.message %></textarea>
   </div>
   <div class="post-actions">
-      <a href="/#<%= post.id %>">
-        <button type="button" class="btn delete-btn">Cancel</button>
-      </a>
-      <button id="save-btn" type="submit" class="btn save-btn">Save</button>
+      <a class="btn info" href="/#<%= post.id %>">Cancel</a>
+      <button id="save-btn" type="submit" class="btn success">Save</button>
     </div>
 </form>
 
