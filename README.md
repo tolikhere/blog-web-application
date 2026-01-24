@@ -1,79 +1,77 @@
-# blog-web-application
-Instructions
+# 📝 Blog Web Application
 
-What are Capstone Projects?
+![Node.js](https://img.shields.io)
+![Express.js](https://img.shields.io)
+![EJS](https://img.shields.io)
 
+---
 
-Project Description
+## 🛠️ Getting Started
 
-The goal of this project is to create a Blog web application using Node.js, Express.js, and EJS. The application will allow users to create and view blog posts. Posts will not persist between sessions as no database will be used in this version of the application. Styling will be an important aspect of this project to ensure a good user experience.
+Follow these steps to get the project running locally:
 
+### 1. Clone the repository
+```bash
+git clone git@github.com:tolikhere/blog-web-application.git
+cd blog-web-application
+```
 
-Example
+### 2. Install dependencies
+```bash
+# Best for consistency: installs exact versions from package-lock.json
+npm ci
+```
 
-http://www.paulgraham.com/articles.html
+### 3. Run the application
+```bash
+# For Production:
+npm start
 
+# For Development:
+npm run dev
+```
 
-Deliverables
+### 4. Access the app
+Open your browser and navigate to:
+http://localhost:3000
 
-    One Node project for the function of the website
+---
 
-    Including at least one EJS file for the structure of the website
+## 🎯 Project Description
+The goal of this project is to create a dynamic **Blog Web Application**. This app allows users to create, view, edit, and delete posts in a single session. 
 
-    Including at least one CSS file for the styling of the website
+> **Note:** This version does not use a database; data will persist only while the server is running.
 
+---
 
-Features
+## 🚀 Features
+- [x] **Post Creation:** Add new blog entries via a dedicated form.
+- [x] **Post Viewing:** View all posts on a clean, centralized homepage.
+- [x] **Post Update/Delete:** Full CRUD functionality to manage your content.
+- [x] **Responsive Styling:** Optimized for both Desktop and Mobile users.
 
-1. Post Creation: Users should be able to create new posts.
+---
 
-2. Post Viewing: The home page should allow the user to view all their posts.
+## 🛠️ Technical Requirements
+- **Runtime:** [Node.js](https://nodejs.org)
+- **Framework:** [Express.js](https://expressjs.com) for routing and middleware.
+- **Templating:** [EJS](https://ejs.co) for dynamic HTML generation.
+- **Styling:** Custom CSS with a focus on Flexbox and modern UI design.
 
-3. Post Update/Delete: Users should be edit and delete posts as needed.
+---
 
-3. Styling: The application should be well-styled and responsive, ensuring a good user experience on both desktop and mobile devices.
+## 📦 Deliverables
+1. **Node Project:** Full functional backend server.
+2. **EJS Templates:** Structured layouts for dynamic rendering.
+3. **CSS Stylesheets:** Custom styling for a polished user experience.
 
+---
 
-Technical Requirements
+## 📅 Development Timeline
 
-1. Node.js & Express.js: The application will be a web server built using Node.js and Express.js. Express.js will handle routing and middleware.
-
-2. EJS: EJS will be used as the templating engine to generate dynamic HTML based on the application's state.
-
-
-Timeline
-
-         Hour 0: Planning
-
-    Gather content and design ideas, create wireframes and mockups. Plan out how the application will work, which routes might be necessary and which pages need to be made.
-
-
-    Hour 1:  Setup
-
-    Set up the project repository, initialize the Node.js application, and install necessary dependencies (Express.js, EJS).
-
-    Create the application structure, including routes, views, and static files.
-
-    Set up the Express.js server and define the necessary routes.
-
-
-    Hour 2-3: Implementing Features
-
-    Implement the post creation feature. This includes creating the form on the home page and handling the form submission in the server.
-
-    Implement the post viewing feature. This includes displaying all the posts on the home page.
-
-    Implement the post edit feature. This includes using a form to load the existing blog post and allowing the user to edit and save the post.
-
-    Implement the delete feature. This allows the user to click a button and remove the post from the home page.
-
-    Test the application to ensure that post creation and viewing are working correctly.
-
-
-    Hour 4-5: Styling and Polishing
-
-    Style the application. This includes creating a CSS file, linking it to your EJS templates, and writing CSS or using Bootstrap/Flexbox/Grid to style the application.
-
-    Test the application on different devices and browsers to ensure the styling works correctly.
-
-    Fix any bugs or issues that came up during testing.
+| Phase | Duration | Tasks |
+| :--- | :--- | :--- |
+| **Planning** | Hour 0 | Wireframes, route mapping, and design mockups. |
+| **Setup** | Hour 1 | Initialize npm, install dependencies, and setup project structure. |
+| **Features** | Hour 2-3 | Implement Create, Read, Update, and Delete (CRUD) logic. |
+| **Polishing** | Hour 4-5 | Final CSS styling, mobile responsiveness, and bug testing. |
